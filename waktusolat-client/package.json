@@ -20,6 +20,7 @@
     "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
+    "axios": "^1.13.4",
     "html-loader": "^5.1.0"
   }
 }

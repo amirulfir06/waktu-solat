@@ -1,7 +1,56 @@
-body{
-    background-color: #5e5e5e;
+:root{
+    --primary: dodgerblue;
+    --rounded: 4px;
 }
 
-h1{
-    color: dodgerblue;
+body{
+    \\background-color: #5e5e5e;
+    margin: 0;
+}
+
+nav{
+    background-color: var(--primary);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+
+    >div{
+        font-weight: bold;
+        color: white;
+        font-size: 22px;
+        font-family:Arial, Helvetica, sans-serif
+    }
+}
+
+#date{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    
+}
+
+#widget{
+    \\background-color: darkred;
+    \\border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    /* container */
+    >div{
+        border: 1px solid black;       
+        margin: 5px;
+        padding: 5px;
+        border-radius: var(--rounded);
+        width: 80px;
+        
+    }
+
+    >div[active]{
+         background-color: var(--primary);
+         color: white;
+    }
 }
