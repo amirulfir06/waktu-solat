@@ -11,13 +11,30 @@
         <div>Waktu Solat</div>
     </nav>
 
-    <div id="date">
+    <div content>
+        <app-tabs>
+            <app-tab title="Waktu" name="waktu"></app-tab>
+            <app-tab title="Jadual" name="jadual"></app-tab>
+        
+        </app-tabs>
+
+        <app-tab-panels>
+            <app-tab-panel name="waktu">
+                <div waktusolat>
+                    <div id="date"></div>
+                    <div id="widget"></div>
+                </div>
+            </app-tab-panel>
+            <app-tab-panel name="jadual">Jadual</app-tab-panel>
+    
+        </app-tab-panels>
 
     </div>
 
-    <div id="widget">
+    
+    
 
-    </div>
+    
 
 
     <!-- <script src="bundle.js"></script> -->

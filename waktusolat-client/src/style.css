@@ -1,15 +1,18 @@
 :root{
-    --primary: dodgerblue;
+    --primary: #4267B2;
+    --secondary: #0C9CAF;
     --rounded: 4px;
+    --hovered: 0px 0px 5px 3px rgba(0,0,0,0.1) inset
 }
 
 body{
-    \\background-color: #5e5e5e;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
 }
 
 nav{
-    background-color: var(--primary);
+    background-color: var(--secondary);
     height: 40px;
     display: flex;
     justify-content: center;
@@ -24,33 +27,104 @@ nav{
     }
 }
 
-#date{
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    height: 30px;
+[content]{
+    margin: 20px 0px;
+
+    [waktusolat]{
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        height: 100%;
+
+        >div{
+            \\border: 1px solid red;
+        }
+
+        #date{
+            \\border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 28px;
+
+            >div{
+                border: 1px solid black;
+                border: 2px solid var(--secondary);
+                color: var(--secondary);
+                margin: 15px;
+                padding: 10px 20px;
+                border-radius: var(--rounded);
+            }
+            
+        }
+
+
+        #widget{            
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+
+            /* container */
+            >div{
+                border: 1px solid black;       
+                margin: 0px 10px 80px;
+                padding: 15px;
+                border-radius: 12px;
+                width: 250px;
+                height: 300px;
+                border: 2px solid var(--secondary);
+                color: var(--secondary);
+                font-weight: bold;
+                text-align: center;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                
+                >div{
+                    margin: 5px;                                       
+                   
+                    border-radius: 12px;
+                }
+
+                /* name */
+                >div:nth-of-type(1){
+                    font-size: 36px;  
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;   
+                }
+
+                 /* time */
+                >div:nth-of-type(2){
+                   font-size: 48px;  
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid var(--secondary);
+                }
+
+              
+            }
+
+            >div:hover{
+                background-color: var(--secondary);
+                cursor: pointer;
+                color: white;
+
+                 /* time */
+                >div:nth-of-type(2){                   
+                    border: 1px solid white;
+                }
+            }
+            
+        }
+
+       
+
+    }
+
+    
+
     
 }
 
-#widget{
-    \\background-color: darkred;
-    \\border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    /* container */
-    >div{
-        border: 1px solid black;       
-        margin: 5px;
-        padding: 5px;
-        border-radius: var(--rounded);
-        width: 80px;
-        
-    }
-
-    >div[active]{
-         background-color: var(--primary);
-         color: white;
-    }
-}

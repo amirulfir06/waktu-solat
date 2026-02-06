@@ -26,11 +26,15 @@ const createtree = (data) => {
     const {asr,day, dhuhr, fajr, hijri, isha, maghrib, syuruk } = today_prayer
     const filtered = {fajr, syuruk,dhuhr, asr, maghrib, isha }
     
+    var datearr = [ day + " " + month, year, zone]
 
-    var datecontent = document.createElement('div')
-    datecontent.textContent = `${month} | ${year} | ${zone}`
+    datearr.forEach(item => {
+        var datecontent = document.createElement('div')
+        datecontent.textContent = item
+        // datecontent.textContent = `${day} ${month} | ${year} | ${zone}`
+        date.append(datecontent)
+    })
 
-    date.append(datecontent)
 
     var prayertimearr = []
     for(const key in filtered){

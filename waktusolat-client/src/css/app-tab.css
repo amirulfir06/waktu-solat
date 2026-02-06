@@ -1,0 +1,25 @@
+app-tab{
+  border: 1px solid black;
+  padding: 6px 20px ;
+  margin: 5px 0px;
+  \\border-radius: var(--rounded);
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: #5e5e5e;
+  
+}
+
+app-tab[open]{
+  \\background-color: var(--primary);
+  \\color: white;
+  border-bottom: 2px solid var(--primary);
+
+}
+
+
+
+app-tab:hover{
+  cursor: pointer;
+  \\box-shadow: var(--hovered);
+}
