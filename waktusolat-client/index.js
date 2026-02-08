@@ -1,5 +1,6 @@
-import './src/style.css'
-import './src/solat'
+import './src/css/style.css'
+import './src/css/global.css'
+import './src/solat.js'
 
 import './src/components/app-tabs.js'
 import './src/components/app-tab.js'
