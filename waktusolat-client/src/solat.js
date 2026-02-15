@@ -43,19 +43,39 @@ const createtree = (data) => {
         prayertimeobj["time"] = unixToTime(today_prayer[key])        
         prayertimearr.push(prayertimeobj)
     }
-    
+
+    const now = new Date()
+    const currentMinutes = now.getHours() * 60 + now.getMinutes()
+
+    let activeContainer = null
+    let lastPrayerMinutes = -1
+
     prayertimearr.forEach(prayer => {
         const container = document.createElement('div')
         const header = document.createElement('div')
         const content = document.createElement('div')
 
+        const [hour, minute] = prayer.time.split(":").map(Number)
+        const prayerMinutes = hour * 60 + minute //convert to minutes
+
         header.textContent = prayer.name
         content.textContent = prayer.time
+
+        if (currentMinutes >= prayerMinutes && prayerMinutes > lastPrayerMinutes) {
+            activeContainer = container
+            lastPrayerMinutes = prayerMinutes
+        }
 
         container.append(header, content)
         widget.append(container)
     })
-   
+
+    // Add active class only once
+    if (activeContainer) {
+        activeContainer.classList.add('active')
+    }
+
+    
 }
 
 function unixToTime(timestamp) {

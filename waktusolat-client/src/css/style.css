@@ -131,8 +131,16 @@ nav{
                 }
             }
 
-           
-             >div:hover{
+           >div.active{
+            background-color: cornflowerblue;
+
+                >div:nth-of-type(2){
+                    background-color: var(--secondary); 
+                    color: white;
+                }
+           }
+
+            >div:hover{
                 background-color: var(--secondary);
                 cursor: pointer;                
                
