@@ -7,27 +7,47 @@
 </head>
 <body>
     
-    <nav>
+    <!-- <nav>
         <div>Waktu Solat</div>
-    </nav>
+    </nav> -->
 
  
     <div content>
     
-        <app-tabs>
-            <app-tab title="Waktu" name="waktu"></app-tab>
-            <app-tab title="Jadual" name="jadual"></app-tab>
+        <app-tabs scope="solat">
+            <app-tab title="Harian" name="waktu"></app-tab>
+            <app-tab title="Bulanan" name="jadual"></app-tab>
         
         </app-tabs>
 
-        <app-tab-panels>
+        <app-tab-panels scope="solat">
             <app-tab-panel name="waktu">
                 <div waktusolat>
                     <div id="date"></div>
                     <div id="widget"></div>
+                    <!-- <div>
+                        <app-tabs scope="country">
+                            <app-tab title="Malaysia" name="malaysia"></app-tab>
+                            <app-tab title="Singapore" name="singapore"></app-tab>
+                        </app-tabs>
+
+                        <app-tab-panels scope="country">
+                            <app-tab-panel name="malaysia">
+                                This is malaysia
+                            </app-tab-panel>
+                            <app-tab-panel name="singapore">
+                                This is singapore
+                            </app-tab-panel>
+                        </app-tab-panels>
+
+                    </div> -->
                 </div>
+               
+
             </app-tab-panel>
-            <app-tab-panel name="jadual">Jadual</app-tab-panel>
+            <app-tab-panel name="jadual">
+                
+            </app-tab-panel>
     
         </app-tab-panels>
 

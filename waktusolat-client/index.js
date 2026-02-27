@@ -12,3 +12,4 @@ import './src/css/app-tabs.css'
 import './src/css/app-tab.css'
 import './src/css/app-tab-panel.css'
 import './src/css/app-tab-panels.css'
+import "@fontsource/roboto";

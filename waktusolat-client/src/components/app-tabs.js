@@ -10,10 +10,7 @@ export class AppTabs extends HTMLElement {
     this.render()
   }
 
-  increment() {
-    this.count++;
-    this.render();
-  }
+ 
 
   render() {
     this.shadowRoot.innerHTML = `

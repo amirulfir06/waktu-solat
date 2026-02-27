@@ -1,20 +1,19 @@
-
-
-:root{
+:root {
     --primary: #4267B2;
     --secondary: #0C9CAF;
     --rounded: 4px;
-    --hovered: 0px 0px 5px 3px rgba(0,0,0,0.1) inset
+    --hovered: 0px 0px 5px 3px rgba(0, 0, 0, 0.1) inset
 }
 
-body{
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: whitesmoke;
-    
+
 }
 
-nav{
+nav {
     background-color: var(--secondary);
     height: 40px;
     display: flex;
@@ -22,15 +21,15 @@ nav{
     align-items: center;
     margin-bottom: 5px;
 
-    >div{
+    >div {
         font-weight: bold;
         color: white;
         font-size: 22px;
-        font-family:Arial, Helvetica, sans-serif
+        font-family: Arial, Helvetica, sans-serif
     }
 }
 
-[content]::before{
+[content]::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -42,31 +41,31 @@ nav{
     z-index: -1;
 }
 
-[content]{
+[content] {
     \\margin: 20px 0px;
-          
-    [waktusolat]{
+
+    [waktusolat] {
         display: grid;
         grid-template-rows: 1fr 5fr;
         height: 100%;
 
-        >div{
+        >div {
             \\border: 1px solid red;
         }
 
-        #date{
+        #date {
             \\border: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: bold;
             font-size: 28px;
-            background-color: var(--secondary);
             border-radius: 16px;
-            background-color: rgba(0, 0, 0, 0.47);
+            \\background-color: var(--secondary);
+            \\background-color: rgba(0, 0, 0, 0.12);
             \\height: 40px;
 
-            >div{
+            >div {
                 border: 1px solid black;
                 border: 2px solid var(--secondary);
                 color: var(--secondary);
@@ -75,12 +74,12 @@ nav{
                 border-radius: 12px;
                 background-color: whitesmoke;
             }
-            
-            >div:hover{
+
+            >div:hover {
                 cursor: pointer;
-               
+
             }
-            
+
         }
 
 
@@ -90,9 +89,9 @@ nav{
             gap: 10px;
             align-items: center;
 
-             /* container */
-            >div{              
-                margin: 0px 10px ;
+            /* container */
+            >div {
+                margin: 0px 10px;
                 padding: 15px;
                 border-radius: 12px;
                 width: 250px;
@@ -100,7 +99,7 @@ nav{
                 border: 2px solid var(--secondary);
                 color: var(--secondary);
                 font-weight: bold;
-                text-align: center;                
+                text-align: center;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -108,60 +107,119 @@ nav{
                 position: relative;
                 background: url('/public/widget_bg.png') center / cover no-repeat;
 
-                >div{
+                >div {
                     border-radius: 12px;
                     \\border: 1px solid red;
                 }
 
                 /* name */
-                >div:nth-of-type(1){
-                    font-size: 36px;  
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;   
-                }
-
-                 /* time */
-                >div:nth-of-type(2){
-                    font-size: 48px;  
+                >div:nth-of-type(1) {
+                    font-size: 36px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid var(--secondary);               
+                }
+
+                /* time */
+                >div:nth-of-type(2) {
+                    font-size: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid var(--secondary);
                 }
             }
 
-           >div.active{
-            background-color: cornflowerblue;
+            >div.active {
+                background-color: cornflowerblue;
 
-                >div:nth-of-type(2){
-                    background-color: var(--secondary); 
+                >div:nth-of-type(2) {
+                    background-color: var(--secondary);
                     color: white;
                 }
-           }
+            }
 
-            >div:hover{
+            >div:hover {
                 background-color: var(--secondary);
-                cursor: pointer;                
-               
-                 /* time */
-                >div:nth-of-type(2){                   
-                    animation: pulse infinite 2s ;
-                    
+                cursor: pointer;
+
+                /* time */
+                >div:nth-of-type(2) {
+                    animation: pulse infinite 2s;
+
                 }
             }
         }
 
-   
 
-       
+
+
 
     }
 
-    
 
-    
+
+
 }
 
+app-tab-panel[name="jadual"] {
+
+    \\display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    table {
+        \\border: 1px solid black;
+        border-collapse: collapse;
+        width: 80%;
+        background-color: whitesmoke;
+        border-radius: 5px 5px 0px 0px;
+        margin-top: 100px;
+        /* border-collapse: separate; 
+        border-spacing: 0; */
+        
+
+        >thead {
+            background-color: var(--secondary);
+            color: white;
+            
+            >tr {
+
+                >th {
+                    padding: 10px;
+                    text-transform: capitalize;
+                }
+                
+                >th:nth-of-type(1){
+                    border-radius: 5px 0px 0px 0px;
+                }
+                >th:nth-last-of-type(1){
+                    border-radius: 0px 5px 0px 0px;
+                }
+            }
 
 
+        }
+
+        >tbody {
+
+            >tr {
+                \\border: 1px solid black;
+
+
+                >td {
+                    \\border: 1px solid black;
+                    padding: 4px 2px;
+                    text-align: center;
+                }
+            }
+
+            >tr.active {
+                background-color: var(--secondary);
+                color: white;
+            }
+
+        }
+
+    }
+}

@@ -11,8 +11,10 @@ export class AppTab extends HTMLElement {
   }
 
   showtab = (event) => {
+    const tabscope = this.parentElement.getAttribute('scope')
     const tabname = this.getAttribute('name')
-    const tabpanels = document.querySelectorAll('app-tab-panel')
+    const tabpanels = document.querySelector(`app-tab-panels[scope="${tabscope}"]`)
+    const tablepanel = tabpanels.querySelectorAll('app-tab-panel')
     const tabs = document.querySelectorAll('app-tab')
 
     tabs.forEach(tab => {
@@ -20,7 +22,7 @@ export class AppTab extends HTMLElement {
       this.setAttribute('open', '')
     })
 
-    tabpanels.forEach(panel => {
+    tablepanel.forEach(panel => {
       panel.removeAttribute('open')
       const panelname = panel.getAttribute('name')
       if(tabname == panelname){

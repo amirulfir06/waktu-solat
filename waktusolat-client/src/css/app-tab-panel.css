@@ -11,7 +11,7 @@ app-tab-panel{
 }
 
 app-tab-panel[open]{
-  display: block;  
+  display: flex;  
   opacity: 1;
   transform: translateY(0);
 }

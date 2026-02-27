@@ -8,6 +8,7 @@ const getwaktusolat = async() => {
     try{
         const response = await axios.get(apiurl)
         createtree(response.data)
+        createtable(response.data)
     }
     catch(e){
         console.log(e)
@@ -83,3 +84,59 @@ function unixToTime(timestamp) {
 }
 
 
+const createtable = (data) => {
+    const jadualtabpanel = document.querySelector('app-tab-panel[name="jadual"]')
+    const today_date = new Date().getDate()
+    const {last_updated, month, month_number, prayers, year, zone} = data
+    var prayersrow = []
+
+    const prayersheader = Object.keys(prayers[0])
+    // console.log(prayersheader)
+
+    prayers.forEach(prayer => {
+    
+        const prayervalues = Object.values(prayer)
+        prayersrow.push(prayervalues)
+    })
+    // console.log(prayerarr)
+
+
+    const table = document.createElement('table')
+    const thead = document.createElement('thead')
+    const tbody = document.createElement('tbody')
+    
+    const theadtr = document.createElement('tr')
+    thead.append(theadtr)
+
+    prayersheader.forEach(header => {
+        const headerth = document.createElement('th')
+        headerth.textContent = header
+        theadtr.append(headerth)
+    })
+
+    prayersrow.forEach((prayer,prayerindex) => {
+        const tbodytr = document.createElement('tr')
+        if(prayerindex + 1 == today_date){
+            tbodytr.classList.add('active')
+        }
+        
+        prayer.forEach((data,index) => {
+            const tbodytd = document.createElement('td')
+            if(index > 1){
+                data = unixToTime(data)
+            }
+            tbodytd.textContent = data
+            tbodytr.append(tbodytd)
+        })
+        tbody.append(tbodytr)
+    })
+
+
+    table.append(thead)
+    table.append(tbody)
+    jadualtabpanel.append(table)
+
+    // table
+    //thead > thead > tr > th,th,th
+    //tbody > tr > td,td,td
+}
