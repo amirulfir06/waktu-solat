@@ -42,28 +42,31 @@ nav {
 }
 
 [content] {
-    \\margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     [waktusolat] {
-        display: grid;
-        grid-template-rows: 1fr 5fr;
-        height: 100%;
+        \\height: 100%;
+        display: flex;
+        flex-direction: column;
+        \\border: 1px solid red;
+        \\box-sizing: border-box;
 
         >div {
-            \\border: 1px solid red;
+            \\border: 1px solid indigo
         }
 
         #date {
-            \\border: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: bold;
             font-size: 28px;
             border-radius: 16px;
-            \\background-color: var(--secondary);
-            \\background-color: rgba(0, 0, 0, 0.12);
-            \\height: 40px;
+
+
 
             >div {
                 border: 1px solid black;
@@ -88,11 +91,12 @@ nav {
             justify-content: center;
             gap: 10px;
             align-items: center;
+            margin-top: 20vh;
 
             /* container */
             >div {
                 margin: 0px 10px;
-                padding: 15px;
+                padding: 5px;
                 border-radius: 12px;
                 width: 250px;
                 height: 300px;
@@ -158,68 +162,65 @@ nav {
     }
 
 
+    #tablediv {
+        width: 90vw;
+    }
 
 
 }
 
-app-tab-panel[name="jadual"] {
 
-    \\display: flex !important;
-    align-items: center;
-    justify-content: center;
+table {
+    \\border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 5px 5px 0px 0px;
+    height: 80%;
+    font-size: 14px;
 
-    table {
-        \\border: 1px solid black;
-        border-collapse: collapse;
-        width: 80%;
-        background-color: whitesmoke;
-        border-radius: 5px 5px 0px 0px;
-        margin-top: 100px;
-        /* border-collapse: separate; 
-        border-spacing: 0; */
-        
 
-        >thead {
-            background-color: var(--secondary);
-            color: white;
-            
-            >tr {
+    >thead {
+        background-color: var(--secondary);
+        color: white;
 
-                >th {
-                    padding: 10px;
-                    text-transform: capitalize;
-                }
-                
-                >th:nth-of-type(1){
-                    border-radius: 5px 0px 0px 0px;
-                }
-                >th:nth-last-of-type(1){
-                    border-radius: 0px 5px 0px 0px;
-                }
+        >tr {
+
+            >th {
+                padding: 10px;
+                text-transform: capitalize;
             }
 
+            >th:nth-of-type(1) {
+                border-radius: 5px 0px 0px 0px;
+            }
 
+            >th:nth-last-of-type(1) {
+                border-radius: 0px 5px 0px 0px;
+            }
         }
 
-        >tbody {
 
-            >tr {
+    }
+
+    >tbody {
+
+        >tr {
+            \\border: 1px solid black;
+
+
+            >td {
                 \\border: 1px solid black;
-
-
-                >td {
-                    \\border: 1px solid black;
-                    padding: 4px 2px;
-                    text-align: center;
-                }
+                padding: 4px 2px;
+                text-align: center;
             }
+        }
 
-            >tr.active {
-                background-color: var(--secondary);
-                color: white;
-            }
-
+        >tr.active {
+            background-color: var(--secondary);
+            color: white;
         }
 
     }
+
 }

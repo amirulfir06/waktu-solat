@@ -85,7 +85,8 @@ function unixToTime(timestamp) {
 
 
 const createtable = (data) => {
-    const jadualtabpanel = document.querySelector('app-tab-panel[name="jadual"]')
+    // const jadualtabpanel = document.querySelector('app-tab-panel[name="jadual"]')
+    const jadualtabpanel = document.querySelector('#tablediv')
     const today_date = new Date().getDate()
     const {last_updated, month, month_number, prayers, year, zone} = data
     var prayersrow = []
@@ -140,3 +141,35 @@ const createtable = (data) => {
     //thead > thead > tr > th,th,th
     //tbody > tr > td,td,td
 }
+
+
+function scheduleMidnightRefresh() {
+    const now = new Date();
+    const midnight = new Date();
+    
+    // Set to 12:00:01 AM of the next day (extra second to ensure the date has flipped)
+    midnight.setDate(now.getDate() + 1);
+    midnight.setHours(0, 0, 1, 0);
+
+    const msUntilMidnight = midnight.getTime() - now.getTime();
+
+    // Calculate hours and minutes
+    const hours = Math.floor(msUntilMidnight / (1000 * 60 * 60));
+    const minutes = Math.floor((msUntilMidnight % (1000 * 60 * 60)) / (1000 * 60));
+
+    // Format with leading zeros
+    const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+
+    console.log(`Refetching in ${formattedTime} (HH:MM)...`);
+
+    setTimeout(() => {
+        fetchPrayerTimes(); // Your API call function
+        scheduleMidnightRefresh(); // Reschedule for the next night
+    }, msUntilMidnight);
+
+
+    
+}
+
+// Initial call
+scheduleMidnightRefresh();

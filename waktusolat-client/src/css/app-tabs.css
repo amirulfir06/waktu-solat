@@ -1,8 +1,8 @@
 app-tabs{
-  \\border: 1px solid red;
   display: flex;
   justify-content: center;
-  \\border-bottom: 1px solid black;
   background-color: var(--secondary);
+  width: 100%;
+  padding: 5px 0px 0px;
  
 }
